@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b0507">
+<title>Our Story ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500&family=Parisienne&display=swap" rel="stylesheet">
+<style>
+:root{
+  --burgundy:#5b0f25; --wine:#2b0712; --ink:#0b0507; --rose:#f3c4cf; --cream:#f7ecdc;
+  --gold:#d6b06b; --gold-soft:rgba(214,176,107,.35);
+  --serif:'Cormorant Garamond','Playfair Display',Georgia,serif;
+  --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --script:'Parisienne','Snell Roundhand','Brush Script MT',cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--ink);-webkit-text-size-adjust:100%}
+html.locked,html.lb-open{overflow:hidden}
+body{background:var(--ink);color:var(--cream);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+html.has-cursor, html.has-cursor *{cursor:none !important}
+
+/* ---------- ambient layers ---------- */
+.ambient{position:fixed;inset:0;z-index:0;overflow:hidden;background:
+  radial-gradient(900px 700px at 15% 0%,#3a0b1b 0%,transparent 65%),
+  radial-gradient(900px 700px at 95% 100%,#47102a 0%,transparent 60%),var(--ink)}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:drift 22s ease-in-out infinite alternate}
+.orb.a{width:46vmax;height:46vmax;left:-12vmax;top:10vh;background:#7a1636}
+.orb.b{width:38vmax;height:38vmax;right:-10vmax;top:55vh;background:#a97b34;opacity:.14;animation-duration:28s}
+@keyframes drift{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(6vmax,-5vmax,0) scale(1.15)}}
+.particles{position:fixed;inset:0;z-index:1;pointer-events:none}
+main{position:relative;z-index:2}
+.grain{position:fixed;inset:0;z-index:3;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+
+/* ---------- type ---------- */
+.serif{font-family:var(--serif)}
+.eyebrow{font-size:.72rem;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:400}
+.h-title{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(2rem,5.5vw,4rem);line-height:1.15;color:var(--cream);text-align:center}
+.gold{color:var(--gold)}
+.sec{position:relative;padding:clamp(5rem,12vh,9rem) clamp(1.25rem,5vw,4rem)}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:.8rem;font-family:var(--sans);font-weight:400;letter-spacing:.28em;text-transform:uppercase;font-size:.74rem;padding:1.1rem 2.4rem;border:1px solid var(--gold);color:var(--cream);background:rgba(91,15,37,.4);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border-radius:999px;cursor:pointer;transition:background .5s,color .5s,box-shadow .5s;touch-action:manipulation}
+.btn:hover{background:var(--gold);color:var(--ink);box-shadow:0 0 40px rgba(214,176,107,.45)}
+.btn svg{width:16px;height:16px}
+
+/* ---------- intro ---------- */
+.intro{position:fixed;inset:0;z-index:200;background:radial-gradient(800px 600px at 50% 40%,#2a0813 0%,#070304 70%);display:grid;place-items:center;text-align:center;padding:2rem}
+.intro>*{grid-area:1/1}
+.i-loader{font-size:.7rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);display:flex;flex-direction:column;align-items:center;gap:1.2rem}
+.i-loader svg{width:26px;height:26px;fill:var(--burgundy);stroke:var(--gold);animation:beat 1.2s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}40%{transform:scale(1.25)}}
+.i-lines{display:grid;gap:1.4rem;font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.6rem,4.6vw,3rem);color:var(--rose)}
+.i-l2{color:var(--cream)}
+.i-center{display:grid;gap:2.6rem;justify-items:center}
+.i-title{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,6vw,4.2rem);line-height:1.2}
+.i-title em{display:block;font-style:italic;color:var(--gold);margin-top:.3rem}
+
+/* ---------- hero ---------- */
+.hero{min-height:100svh;display:grid;place-items:center;text-align:center;position:relative}
+.hero-in{display:grid;gap:1.1rem}
+.h1{font-family:var(--serif);font-weight:300;font-size:clamp(3.6rem,13vw,9.5rem);line-height:1;color:var(--cream);letter-spacing:-.01em}
+.h1 .cnt{color:var(--gold);font-style:italic}
+.h2{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(1.6rem,4vw,2.8rem);color:var(--rose)}
+.h3{font-family:var(--serif);font-weight:400;font-size:clamp(1.15rem,2.6vw,1.8rem);color:var(--cream);opacity:.9}
+.h-hint{position:absolute;bottom:4vh;left:50%;transform:translateX(-50%);display:grid;justify-items:center;gap:.7rem;font-size:.62rem;letter-spacing:.4em;text-transform:uppercase;color:var(--gold)}
+.h-hint .line{width:1px;height:46px;background:linear-gradient(var(--gold),transparent)}
+
+/* ---------- timeline ---------- */
+.tl-head{text-align:center;margin-bottom:5rem;display:grid;gap:1rem}
+.tl{position:relative;max-width:1040px;margin:0 auto}
+.tl-rail,.tl-fill{position:absolute;left:50%;top:0;bottom:0;width:1px;transform:translateX(-50%)}
+.tl-rail{background:rgba(214,176,107,.15)}
+.tl-fill{background:linear-gradient(var(--gold),var(--rose));box-shadow:0 0 14px var(--gold);transform-origin:top;transform:translateX(-50%) scaleY(0)}
+.tl-item{position:relative;width:50%;padding:0 3.2rem 5rem}
+.tl-item.l{text-align:right}
+.tl-item.r{margin-left:50%}
+.tl-dot{position:absolute;top:.5rem;width:13px;height:13px;border-radius:50%;background:var(--burgundy);border:1px solid var(--gold);box-shadow:0 0 18px var(--gold)}
+.tl-item.l .tl-dot{right:-6.5px}
+.tl-item.r .tl-dot{left:-6.5px}
+.tl-date{font-size:.68rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.tl-title{font-family:var(--serif);font-weight:400;font-style:italic;font-size:clamp(1.7rem,3.2vw,2.4rem);margin:.4rem 0 .6rem;color:var(--cream)}
+.tl-text{color:rgba(247,236,220,.75);max-width:34ch;display:inline-block}
+@media(max-width:760px){
+  .tl-rail,.tl-fill{left:14px}
+  .tl-item,.tl-item.r{width:100%;margin-left:0;padding:0 0 4rem 3rem;text-align:left}
+  .tl-item.l .tl-dot,.tl-item.r .tl-dot{left:8px;right:auto}
+}
+
+/* ---------- memories ---------- */
+.mem-head{text-align:center;display:grid;gap:1rem;margin-bottom:4rem}
+.cine{max-width:1200px;margin:0 auto 6rem}
+.cine-btn{display:block;width:100%;background:none;border:0;cursor:zoom-in;text-align:left}
+.cine-img{position:relative;overflow:hidden;aspect-ratio:16/9;max-height:82vh;border-radius:4px;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 0 1px var(--gold-soft)}
+.cine-img img{position:absolute;left:0;top:-10%;width:100%;height:120%;object-fit:cover;transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+.cine-btn:hover img{transform:scale(1.06)}
+.cine-img::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 60%,rgba(11,5,7,.5))}
+.cap{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.6rem);color:var(--rose);margin-top:1.1rem;text-align:center}
+.pols{display:flex;flex-wrap:wrap;justify-content:center;gap:2.6rem;max-width:1200px;margin:0 auto 6rem}
+.pol-wrap{width:min(300px,78vw)}
+.pol{display:block;width:100%;background:#f8f1e6;padding:14px 14px 0;border:0;cursor:zoom-in;color:#3a1a22;border-radius:2px;box-shadow:0 24px 50px rgba(0,0,0,.55);transform:rotate(var(--rot));transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s}
+.pol:hover{transform:rotate(0) scale(1.04);box-shadow:0 34px 70px rgba(0,0,0,.65),0 0 40px rgba(214,176,107,.25)}
+.pol-img{overflow:hidden;aspect-ratio:4/5;background:#222}
+.pol-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
+.pol:hover .pol-img img{transform:scale(1.1)}
+.pol-cap{font-family:var(--script);font-size:1.35rem;line-height:1.25;padding:1rem .4rem 1.3rem;text-align:center;min-height:5.2rem;display:grid;place-items:center}
+.lb{position:fixed;inset:0;z-index:400;background:rgba(7,3,4,.95);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);display:grid;grid-template-rows:1fr auto;padding:calc(env(safe-area-inset-top,0px) + 1rem) 1rem calc(env(safe-area-inset-bottom,0px) + 1rem)}
+.lb img{max-width:100%;max-height:100%;margin:auto;object-fit:contain;border-radius:3px;box-shadow:0 0 80px rgba(214,176,107,.15)}
+.lb-fig{min-height:0;display:grid;place-items:center}
+.lb .cap{margin:1rem 0 0}
+.lb-btn{position:absolute;background:rgba(91,15,37,.5);border:1px solid var(--gold-soft);color:var(--cream);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;cursor:pointer;transition:background .3s}
+.lb-btn:hover{background:var(--gold);color:var(--ink)}
+.lb-btn svg{width:20px;height:20px}
+.lb-close{top:calc(env(safe-area-inset-top,0px) + 14px);right:14px}
+.lb-prev{left:14px;top:50%}.lb-next{right:14px;top:50%}
+@media(max-width:600px){.lb-prev,.lb-next{top:auto;bottom:calc(env(safe-area-inset-bottom,0px) + 14px)}}
+
+/* ---------- reasons ---------- */
+.rs-head{max-width:900px;margin:0 auto 4rem}
+.reasons{max-width:900px;margin:0 auto;display:grid}
+.reason{display:grid;justify-items:center;gap:1.1rem;min-height:46vh;align-content:center;text-align:center;background:none;border:0;cursor:pointer;padding:2rem 0}
+.reason .n{font-size:.7rem;letter-spacing:.4em;color:var(--gold)}
+.reason .t{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(1.9rem,5vw,3.6rem);line-height:1.25;color:var(--cream);transition:color .5s,text-shadow .5s}
+.reason:hover .t{color:var(--rose);text-shadow:0 0 30px rgba(243,196,207,.4)}
+.reason svg{width:18px;height:18px;fill:var(--burgundy);stroke:var(--gold);opacity:.8}
+.rs-end{text-align:center;font-family:var(--serif);font-size:clamp(1.3rem,3vw,2rem);color:var(--gold);padding:3rem 0 0;font-style:italic}
+
+/* ---------- song ---------- */
+.song{min-height:100svh;display:grid;place-items:center;overflow:hidden;position:relative}
+.song-glow{position:absolute;width:60vmax;height:60vmax;border-radius:50%;background:radial-gradient(circle,rgba(122,22,54,.55),transparent 65%);filter:blur(30px);opacity:.45;transition:opacity 1.2s;animation:breathe 7s ease-in-out infinite}
+.playing .song-glow{opacity:.95}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.12)}}
+.song-in{position:relative;display:grid;gap:3rem;justify-items:center;text-align:center;width:min(560px,100%)}
+.player{width:100%;background:linear-gradient(160deg,rgba(91,15,37,.45),rgba(20,6,10,.7));border:1px solid var(--gold-soft);border-radius:24px;padding:2.2rem 1.6rem;display:grid;gap:1.6rem;justify-items:center;-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.disc{width:150px;height:150px;border-radius:50%;background:repeating-radial-gradient(circle,#150609 0 3px,#22090f 3px 6px);border:1px solid var(--gold-soft);display:grid;place-items:center;animation:spin 9s linear infinite;animation-play-state:paused;box-shadow:0 0 40px rgba(0,0,0,.6)}
+.playing .disc{animation-play-state:running;box-shadow:0 0 50px rgba(214,176,107,.25)}
+.disc i{width:54px;height:54px;border-radius:50%;background:radial-gradient(circle,var(--gold),#8a6425);display:grid;place-items:center}
+.disc i svg{width:22px;height:22px;fill:var(--burgundy);stroke:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.s-title{font-family:var(--serif);font-size:1.9rem;font-weight:400;font-style:italic}
+.s-artist{font-size:.72rem;letter-spacing:.35em;text-transform:uppercase;color:var(--gold)}
+.eq{display:flex;align-items:flex-end;gap:3px;height:64px;width:100%}
+.eq i{flex:1;height:100%;border-radius:2px;background:linear-gradient(var(--rose),var(--gold));opacity:.45;transform-origin:bottom;transform:scaleY(.12);animation:eq var(--d) ease-in-out infinite alternate;animation-play-state:paused}
+.playing .eq i{animation-play-state:running;opacity:1}
+@keyframes eq{from{transform:scaleY(.12)}to{transform:scaleY(var(--h))}}
+.round{width:68px;height:68px;padding:0;justify-content:center;border-radius:50%}
+.round svg{width:24px;height:24px;fill:currentColor}
+.note{font-size:.7rem;opacity:.5;letter-spacing:.05em;max-width:34ch}
+
+/* ---------- letter ---------- */
+.letter{min-height:100svh;display:grid;place-items:center;align-content:center;gap:3rem;padding-top:6rem;padding-bottom:6rem}
+.paper{position:relative;width:min(760px,100%);color:#4a1424;background:radial-gradient(circle at 20% 10%,#fdf6ea,#f1e3cb 70%,#e8d6b8);padding:clamp(2rem,6vw,4.2rem) clamp(1.5rem,6vw,4.5rem);border-radius:3px;box-shadow:0 40px 100px rgba(0,0,0,.65),inset 0 0 80px rgba(150,100,40,.18);transform:rotate(-.6deg)}
+.paper p{font-family:var(--script);font-size:clamp(1.45rem,3.6vw,2.15rem);line-height:1.6;margin-bottom:.9rem;min-height:1.6em}
+.caret{display:inline-block;width:2px;height:1em;background:#7a1636;margin-left:3px;vertical-align:-.12em;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.sig{font-family:var(--script);font-size:clamp(1.6rem,4vw,2.4rem);text-align:right;color:#7a1636;margin-top:1.2rem;transition:opacity 1.2s}
+.seal{position:absolute;left:50%;bottom:-26px;transform:translateX(-50%);width:54px;height:54px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#b3304f,#6d0f27);display:grid;place-items:center;box-shadow:0 8px 20px rgba(0,0,0,.5)}
+.seal svg{width:22px;height:22px;fill:#f6d9df}
+
+/* ---------- pinned stages (birthday / promise) ---------- */
+.stage{position:relative;height:100vh;height:100svh;overflow:hidden;display:grid;place-items:center;text-align:center;padding:2rem}
+.stage>*{grid-area:1/1}
+.stage .abs{position:relative;z-index:3;display:grid;gap:1.2rem;justify-items:center;max-width:1100px}
+.bday{background:radial-gradient(circle at 50% 50%,#12060a,#030102 75%)}
+.b-glow,.f-glow{position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%,rgba(150,30,65,.55),transparent 60%);opacity:0;pointer-events:none}
+.confetti{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.b1,.b2{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(2rem,6vw,4.4rem);color:var(--rose)}
+.b2{color:var(--cream)}
+.b-big{font-family:var(--serif);font-weight:500;font-size:clamp(2.6rem,9vw,7.4rem);line-height:1.02;letter-spacing:.02em;background:linear-gradient(120deg,#f7ecdc 10%,#e9c987 45%,#f3c4cf 90%);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 60px rgba(214,176,107,.2)}
+.b4{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,2.1rem);color:var(--rose);margin-top:1rem}
+.b5{font-size:.78rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold)}
+.promise{background:#050203}
+.f-bg{position:absolute;inset:-6%;z-index:0;will-change:transform}
+.f-bg img{width:100%;height:100%;object-fit:cover;animation:ken 30s ease-in-out infinite alternate;filter:saturate(.85)}
+@keyframes ken{from{transform:scale(1) translate3d(0,0,0)}to{transform:scale(1.08) translate3d(-1.5%,1%,0)}}
+.f-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(rgba(5,2,3,.55),rgba(5,2,3,.72)),radial-gradient(circle at 50% 50%,transparent 20%,rgba(5,2,3,.8))}
+.f1,.f2,.f3,.f4{font-family:var(--serif);font-style:italic;font-weight:300;line-height:1.25;font-size:clamp(1.7rem,4.8vw,3.4rem);color:var(--cream)}
+.f2{color:var(--rose)}
+.f3{font-size:clamp(3.5rem,14vw,9rem);color:var(--gold);font-weight:300;text-shadow:0 0 60px rgba(214,176,107,.4)}
+.f-final{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,8.4vw,6.4rem);line-height:1.05;background:linear-gradient(120deg,#f7ecdc,#e9c987 50%,#f3c4cf);-webkit-background-clip:text;background-clip:text;color:transparent}
+.f-sub{font-family:var(--script);font-size:clamp(1.8rem,5vw,3.2rem);color:var(--rose)}
+.f-btn{margin-top:1.4rem}
+.hb{display:inline-block;animation:beat 1.4s ease-in-out infinite;-webkit-text-fill-color:initial}
+
+/* ---------- ui chrome ---------- */
+.pbar{position:fixed;top:0;left:0;right:0;height:2px;z-index:90;background:transparent;padding-top:env(safe-area-inset-top,0px)}
+.pbar i{display:block;height:2px;background:linear-gradient(90deg,var(--burgundy),var(--gold),var(--rose));transform-origin:left;transform:scaleX(0);box-shadow:0 0 12px var(--gold)}
+.dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:90;display:grid;gap:14px}
+.dots button{position:relative;width:12px;height:12px;border-radius:50%;border:1px solid var(--gold);background:transparent;cursor:pointer;padding:0;transition:all .5s}
+.dots button.on{background:var(--gold);box-shadow:0 0 12px var(--gold);transform:scale(1.2)}
+.dots button span{position:absolute;right:22px;top:50%;transform:translateY(-50%);font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;white-space:nowrap;opacity:0;pointer-events:none;color:var(--cream);transition:opacity .3s}
+.dots button:hover span,.dots button:focus-visible span{opacity:1}
+@media(max-width:900px){.dots{display:none}}
+.cur-dot,.cur-ring,.cur-glow{position:fixed;left:0;top:0;pointer-events:none;border-radius:50%;opacity:0}
+.cur-dot{width:7px;height:7px;background:var(--rose);z-index:999;box-shadow:0 0 12px var(--rose)}
+.cur-ring{width:38px;height:38px;border:1px solid var(--gold);z-index:998;transition:width .3s,height .3s,background .3s}
+.cur-ring.hot{width:64px;height:64px;background:rgba(214,176,107,.12)}
+.cur-glow{width:420px;height:420px;z-index:4;background:radial-gradient(circle,rgba(243,196,207,.13),transparent 65%);mix-blend-mode:screen}
+.burst-heart{position:fixed;pointer-events:none;color:var(--rose);z-index:300;text-shadow:0 0 12px rgba(243,150,175,.8)}
+.curtain{position:fixed;inset:0;background:#000;z-index:500;opacity:0;visibility:hidden}
+.rv{will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){.orb,.f-bg img,.song-glow{animation:none}}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/htm@3.1.1/dist/htm.umd.js"></script>
+<script>
+/* =====================================================================
+   ❤️  1. CONFIG  —  EVERYTHING YOU NEED TO EDIT LIVES IN THIS OBJECT  ❤️
+   ===================================================================== */
+const CONFIG = {
+  // ✏️ Her name — shown in the intro and the final reveal
+  name: "CHEEKU",
+  months: 10,
+
+  intro: {
+    line1: "Some stories are written…",
+    line2: "…but ours was meant to be felt.",
+    title: "This is our story,",
+    button: "Begin Our Story"
+  },
+
+  beginning: {
+    line2: "Countless memories.",
+    line3: "One person I’d choose every time.",
+    timelineEyebrow: "The moments that made us",
+    timelineTitle: "How it all unfolded"
+  },
+
+  // ✏️ Timeline — replace date / title / text with your real moments
+  timeline: [
+    { date: "Sept,2025",     title: "INTERACTION AND SIH", text: "Baat hmari shuru sih ke liye hui mgr kha dekhte dekhte dono ek dusre ke ho gye pta bhi nhi chla" },
+    { date: "12th-25th sep,2025",     title: "VIBING TIME",      text: "SIH toh khtm hogya tha mgr phir bhi sath the fashion show vale din sathme vibe krna dandiya pr apke mere sath rehna mujhpr trust dikhana" },
+    { date: "5th,oct",  title: "LAST YAER THE SAME DAY(FAV DAY)",         text: "Kha pta tha last year jha apke birthday pr as a friend apke liye pingu leke aaya tha ab puri life ke liye mai hi apka pingu rhunga" },
+    { date: "20th,oct", title: "FIRST “I love you”(ONLY WISH)", text: "diwali ka time aur hmara ek dusre ko i love you bolna ek dusre pr trust dikhana the only with to be happened and become forever " },
+    { date: "21st oct-1st dec",      title: " FASTEST TIME",    text: "Confess kre hue sathme itna time spend krte hue movie dekhte hue pta bhi nhi chla kab almost 1.5 months nikal gye aur itne jyada close aa gye hum dono " },
+    { date: "2nd,dec", title: "PROPOSE DAY",     text: "Finally apne ander himmat rkhte hue bus jo mn tha sab bolne ki himmat krke apni dudu ko last mai propose kr hi diya aur ab 10 months ho chke and were gonna be forever " },
+    { date: "TODAYr", title: "THE MOST SPECIAL DAY",        text: "Voh din which it the most special most awaited day for me my baby's birthday the same day a year before when i got blessed to have some with me unconditionally " }
+  ],
+
+  /* ✏️ PHOTOS — to use your own, paste a URL, or a data: URI, into `src`.
+     Leave src as "" to show an elegant labelled placeholder.
+     layout: "cinema" = big full-width image,  "polaroid" = small polaroid card */
+  photos: [
+    { src: "WhatsApp Image 2026-09-30 at 4.37.28 PM (2).jpeg", layout: "cinema",   caption: "The day everything started feeling different." },
+    { src: "WhatsApp Image 2026-09-23 at 3.40.20 PM (8).jpeg", layout: "polaroid", caption: "My favorite smile." },
+    { src: "WhatsApp Image 2025-12-31 at 10.49.59 PM (1).jpeg", layout: "polaroid", caption: "A moment I wish I could relive forever." },
+    { src: "WhatsApp Image 2026-09-30 at 4.37.29 PM.jpeg", layout: "polaroid", caption: "Us, being completely us." },
+    { src: "WhatsApp Image 2025-12-31 at 10.49.59 PM (2).jpeg", layout: "cinema",   caption: "Every ordinary day, made softer by you." },
+    { src: "WhatsApp Image 2026-10-01 at 11.51.20 AM (3).jpeg", layout: "polaroid", caption: "The one where we couldn’t stop laughing." },
+    { src: "WhatsApp Image 2025-12-31 at 10.49.59 PM.jpeg", layout: "polaroid", caption: "Wherever you are feels like home." },
+    { src: "WhatsApp Image 2025-12-31 at 10.49.58 PM.jpeg", layout: "cinema",   caption: "Ten months in, and I’d choose this all over again." }
+  ],
+
+  memoriesEyebrow: "Our memories",
+  memoriesTitle: "A scrapbook of us",
+
+  reasonsTitle: "There are a million things I love about you…",
+  // ✏️ Add, remove or rewrite reasons freely
+  reasons: [
+    "Your smile.",
+    "Your voice.",
+    "The way you make ordinary days feel special.",
+    "The way you understand me without words.",
+    "The little things you do that you probably don't even realize."
+  ],
+  reasonsClosing: "…and I’m still discovering more every day.",
+
+  song: {
+    intro: "If our love had a soundtrack…",
+    title: "Perfect",            // ✏️ song title
+    // ✏️ AUDIO — put a URL / data: URI of your song here (mp3). While empty, a soft
+    //    placeholder melody plays so you can test the player.
+    src: "Perfect - Ed Sheeran.mp3"
+  },
+
+  letter: {
+    heading: "For the girl who became my favorite part of life…",
+    // ✏️ Each string is typed out as one line of the letter
+    lines: [
+      "You came into my life and somehow made ordinary moments feel extraordinary.",
+      "In these ten months, you've become more than just someone I love.",
+      "You've become my comfort, my happiness, my favorite person,",
+      "and the person I want beside me through everything."
+    ],
+    signature: "Forever yours,"
+  },
+
+  birthday: {
+    b1: "And today…",
+    b2: "My favorite person was born.",
+    title: "HAPPY BIRTHDAY, MY DUDU ❤️",
+    sub1: "Your first birthday as my girlfriend.",
+    sub2: "10 months of us."
+  },
+
+  promise: {
+    // ✏️ PHOTO for the slow-moving final background (URL or data: URI). "" = placeholder
+    photo: "WhatsApp Image 2026-09-30 at 4.37.28 PM.jpeg",
+    f1: "I don't know what every tomorrow will look like…",
+    f2: "…but I know who I want beside me.",
+    f3: "You.",
+    f4: "Today. Tomorrow. And in every version of the future I get to choose.",
+    final: "I love you ,",
+    sub: "Happy Birthday, meri jaan.",
+    button: "Replay Our Story"
+  }
+};
+
+/* =====================================================================
+   2. HELPERS
+   ===================================================================== */
+const { useState, useRef, useEffect, useLayoutEffect } = React;
+const html = htm.bind(React.createElement);
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+try { history.scrollRestoration = 'manual'; } catch (e) {}
+
+const isFine   = window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+const isMobile = window.matchMedia('(max-width:768px)').matches;
+const reduced  = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+let _rt; const refreshSoon = () => { clearTimeout(_rt); _rt = setTimeout(() => ScrollTrigger.refresh(), 250); };
+
+function useGsap(ref, fn) {
+  useLayoutEffect(() => {
+    const ctx = gsap.context(fn, ref);
+    return () => ctx.revert();
+  }, []);
+}
+
+function revealAll(root, sel = '.rv') {
+  gsap.utils.toArray(sel, root).forEach(el => {
+    gsap.fromTo(el, { opacity: 0, y: 44, filter: 'blur(10px)' },
+      { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1.4, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 86%' } });
+  });
+}
+
+function heartBurst(x, y, n = 8) {
+  for (let i = 0; i < n; i++) {
+    const el = document.createElement('span');
+    el.textContent = '♥';
+    el.className = 'burst-heart';
+    el.style.left = x + 'px'; el.style.top = y + 'px';
+    el.style.fontSize = (10 + Math.random() * 16) + 'px';
+    document.body.appendChild(el);
+    gsap.to(el, { x: (Math.random() - .5) * 180, y: -70 - Math.random() * 130, rotation: (Math.random() - .5) * 70,
+      opacity: 0, duration: 1.3 + Math.random(), ease: 'power2.out', onComplete: () => el.remove() });
+  }
+}
+
+/* Generated placeholder images (so nothing is ever broken). */
+function ph(i, layout) {
+  const cin = layout === 'cinema', w = cin ? 1600 : 800, h = cin ? 900 : 1000;
+  const hues = [[345, 20], [330, 10], [355, 25], [340, 15]][i % 4];
+  const c1 = `hsl(${hues[0]},55%,${20 + (i % 3) * 4}%)`, c2 = `hsl(${hues[1]},60%,10%)`;
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 ${w} ${h}'><defs><radialGradient id='g' cx='30%' cy='25%' r='95%'><stop offset='0' stop-color='${c1}'/><stop offset='1' stop-color='${c2}'/></radialGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><path transform='translate(${w / 2 - 60},${h / 2 - 110}) scale(2)' d='M30 52 C-10 20 10 -6 30 14 C50 -6 70 20 30 52Z' fill='none' stroke='#d6b06b' stroke-opacity='.55' stroke-width='3'/><text x='50%' y='${h * 0.7}' fill='#f7ecdc' fill-opacity='.85' font-family='Georgia,serif' font-size='${cin ? 46 : 38}' text-anchor='middle'>Your photo ${i + 1} goes here</text><text x='50%' y='${h * 0.7 + (cin ? 58 : 48)}' fill='#d6b06b' fill-opacity='.85' font-family='Arial,sans-serif' font-size='${cin ? 26 : 21}' text-anchor='middle'>CONFIG.photos[${i}].src</text></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+function phFinal() {
+  const svg = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 1000'><defs><radialGradient id='g' cx='50%' cy='40%' r='80%'><stop offset='0' stop-color='#7a1636'/><stop offset='1' stop-color='#14060b'/></radialGradient></defs><rect width='100%' height='100%' fill='url(#g)'/><text x='50%' y='92%' fill='#d6b06b' fill-opacity='.6' font-family='Arial,sans-serif' font-size='24' text-anchor='middle'>CONFIG.promise.photo — your favorite photo</text></svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+/* Soft placeholder melody (only used when CONFIG.song.src is empty / fails) */
+function createPad() {
+  const AC = window.AudioContext || window.webkitAudioContext; if (!AC) return null;
+  const ctx = new AC(), master = ctx.createGain(); master.gain.value = 0; master.connect(ctx.destination);
+  const chords = [[220, 261.63, 329.63], [174.61, 220, 261.63], [261.63, 329.63, 392], [196, 246.94, 293.66]];
+  let i = 0, timer = null;
+  const hit = () => {
+    chords[i % 4].forEach(f => {
+      const o = ctx.createOscillator(), g = ctx.createGain(), t = ctx.currentTime;
+      o.type = 'sine'; o.frequency.value = f;
+      g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(.5, t + 1.5); g.gain.linearRampToValueAtTime(0, t + 4.2);
+      o.connect(g); g.connect(master); o.start(); o.stop(t + 4.3);
+    }); i++;
+  };
+  return {
+    start() { ctx.resume(); master.gain.cancelScheduledValues(ctx.currentTime); master.gain.linearRampToValueAtTime(.14, ctx.currentTime + 1); hit(); timer = setInterval(hit, 3800); },
+    stop() { clearInterval(timer); master.gain.linearRampToValueAtTime(0, ctx.currentTime + .6); },
+    close() { clearInterval(timer); try { ctx.close(); } catch (e) {} }
+  };
+}
+
+function makeConfetti(c) {
+  const x = c.getContext('2d'); let w, h, ps = [], on = false, raf;
+  const cols = ['#d6b06b', '#f3c4cf', '#f7ecdc', '#b3475f', '#ffd9e0'];
+  const size = () => { const r = c.getBoundingClientRect(); w = c.width = r.width; h = c.height = r.height; };
+  size(); window.addEventListener('resize', size);
+  const spawn = (y) => ps.push({ x: Math.random() * w, y, vx: (Math.random() - .5) * 1.1, vy: 1 + Math.random() * 1.8,
+    s: 4 + Math.random() * 6, r: Math.random() * 6.28, vr: (Math.random() - .5) * .2, c: cols[(Math.random() * cols.length) | 0], t: Math.random() * 100, round: Math.random() < .3 });
+  const tick = () => {
+    x.clearRect(0, 0, w, h);
+    if (on) { for (let i = 0; i < (isMobile ? 1 : 2); i++) if (Math.random() < .6) spawn(-10); }
+    for (let i = ps.length - 1; i >= 0; i--) {
+      const p = ps[i]; p.t += .03; p.x += p.vx + Math.sin(p.t) * .6; p.y += p.vy; p.r += p.vr;
+      if (p.y > h + 20) { ps.splice(i, 1); continue; }
+      x.save(); x.translate(p.x, p.y); x.rotate(p.r); x.fillStyle = p.c; x.globalAlpha = .9;
+      if (p.round) { x.beginPath(); x.arc(0, 0, p.s / 2, 0, 6.283); x.fill(); } else x.fillRect(-p.s / 2, -p.s / 4, p.s, p.s / 2);
+      x.restore();
+    }
+    raf = requestAnimationFrame(tick);
+  };
+  raf = requestAnimationFrame(tick);
+  return {
+    start() { if (on) return; on = true; for (let i = 0; i < (isMobile ? 40 : 90); i++) spawn(-Math.random() * h * .7); },
+    stop() { on = false; },
+    destroy() { cancelAnimationFrame(raf); window.removeEventListener('resize', size); }
+  };
+}
+
+/* ---- tiny icons (Lucide-style inline SVG) ---- */
+const Heart = ({ className }) => html`<svg className=${className} viewBox="0 0 24 24" strokeWidth="1.5" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C1 8.6 2.9 5 6.3 5c2 0 3.4 1.1 4.2 2.4h3C14.3 6.1 15.7 5 17.7 5c3.4 0 5.3 3.6 3.9 6.8C19.5 16.4 12 21 12 21z"/></svg>`;
+const Play = () => html`<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l13-7.5z"/></svg>`;
+const Pause = () => html`<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4.5" width="4.5" height="15" rx="1"/><rect x="13.5" y="4.5" width="4.5" height="15" rx="1"/></svg>`;
+const Icon = ({ d }) => html`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d=${d}/></svg>`;
+
+/* =====================================================================
+   3. SHARED COMPONENTS
+   ===================================================================== */
+function MagBtn({ children, className = '', onClick, label }) {
+  const ref = useRef();
+  useEffect(() => {
+    if (!isFine) return;
+    const el = ref.current;
+    const mv = e => { const r = el.getBoundingClientRect(); gsap.to(el, { x: (e.clientX - r.left - r.width / 2) * .3, y: (e.clientY - r.top - r.height / 2) * .4, duration: .4, ease: 'power3.out' }); };
+    const lv = () => gsap.to(el, { x: 0, y: 0, duration: .9, ease: 'elastic.out(1,.4)' });
+    el.addEventListener('mousemove', mv); el.addEventListener('mouseleave', lv);
+    return () => { el.removeEventListener('mousemove', mv); el.removeEventListener('mouseleave', lv); };
+  }, []);
+  return html`<button ref=${ref} type="button" className=${'btn ' + className} onClick=${onClick} aria-label=${label}>${children}</button>`;
+}
+
+function Particles() {
+  const ref = useRef();
+  useEffect(() => {
+    const c = ref.current, x = c.getContext('2d'); let w, h, raf; const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+    const N = isMobile ? 26 : reduced ? 20 : 70; const ps = [];
+    const resize = () => { w = innerWidth; h = innerHeight; c.width = w * dpr; c.height = h * dpr; c.style.width = w + 'px'; c.style.height = h + 'px'; x.setTransform(dpr, 0, 0, dpr, 0, 0); };
+    const mk = init => ({ x: Math.random() * w, y: init ? Math.random() * h : h + 20, r: Math.random() * 2 + .5, s: .15 + Math.random() * .45, a: Math.random() * .6 + .2, heart: Math.random() < .16, ph: Math.random() * 6.28, gold: Math.random() < .5 });
+    resize(); for (let i = 0; i < N; i++) ps.push(mk(true));
+    const heartPath = (cx, cy, s) => { x.beginPath(); x.moveTo(cx, cy + s * .35); x.bezierCurveTo(cx - s, cy - s * .4, cx - s * .55, cy - s * 1.1, cx, cy - s * .45); x.bezierCurveTo(cx + s * .55, cy - s * 1.1, cx + s, cy - s * .4, cx, cy + s * .35); x.fill(); };
+    const tick = t => {
+      x.clearRect(0, 0, w, h);
+      for (const p of ps) {
+        p.y -= p.s; p.x += Math.sin(t / 1800 + p.ph) * .25;
+        if (p.y < -20) Object.assign(p, mk(false));
+        const al = p.a * (.6 + .4 * Math.sin(t / 900 + p.ph));
+        if (p.heart) { x.fillStyle = `rgba(243,150,175,${al * .7})`; heartPath(p.x, p.y, p.r * 3 + 4); }
+        else { const col = p.gold ? '214,176,107' : '243,196,207'; const g = x.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 5); g.addColorStop(0, `rgba(${col},${al})`); g.addColorStop(1, `rgba(${col},0)`); x.fillStyle = g; x.beginPath(); x.arc(p.x, p.y, p.r * 5, 0, 6.283); x.fill(); }
+      }
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    window.addEventListener('resize', resize);
+    return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize); };
+  }, []);
+  return html`<canvas ref=${ref} className="particles" aria-hidden="true"></canvas>`;
+}
+
+function Cursor() {
+  const dot = useRef(), ring = useRef(), glow = useRef();
+  useEffect(() => {
+    if (!isFine) return;
+    document.documentElement.classList.add('has-cursor');
+    gsap.set([dot.current, ring.current, glow.current], { xPercent: -50, yPercent: -50 });
+    const q = (el, d, e) => [gsap.quickTo(el, 'x', { duration: d, ease: e }), gsap.quickTo(el, 'y', { duration: d, ease: e })];
+    const [dx, dy] = q(dot.current, .06, 'power3'), [rx, ry] = q(ring.current, .35, 'power3'), [gx, gy] = q(glow.current, .9, 'power3');
+    let shown = false;
+    const mv = e => { if (!shown) { shown = true; gsap.to([dot.current, ring.current, glow.current], { opacity: 1, duration: .6 }); } dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY); gx(e.clientX); gy(e.clientY); };
+    const ov = e => ring.current.classList.toggle('hot', !!e.target.closest('button,a,[data-hover]'));
+    const ck = e => heartBurst(e.clientX, e.clientY, 4);
+    addEventListener('mousemove', mv); addEventListener('mouseover', ov); addEventListener('click', ck);
+    return () => { document.documentElement.classList.remove('has-cursor'); removeEventListener('mousemove', mv); removeEventListener('mouseover', ov); removeEventListener('click', ck); };
+  }, []);
+  if (!isFine) return null;
+  return html`<div aria-hidden="true"><div ref=${glow} className="cur-glow"></div><div ref=${ring} className="cur-ring"></div><div ref=${dot} className="cur-dot"></div></div>`;
+}
+
+const SECTIONS = [['beginning', 'Beginning'], ['memories', 'Memories'], ['reasons', 'Reasons'], ['song', 'Our Song'], ['letter', 'Letter'], ['birthday', 'Birthday'], ['promise', 'Promise']];
+const spacerOf = id => { const el = document.getElementById(id); return el ? (el.closest('.pin-spacer') || el) : null; };
+
+function Progress() {
+  const [act, setAct] = useState(0); const bar = useRef();
+  useEffect(() => {
+    const f = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      bar.current.style.transform = `scaleX(${max > 0 ? Math.min(1, scrollY / max) : 0})`;
+      let a = 0; SECTIONS.forEach(([id], i) => { const s = spacerOf(id); if (s && s.getBoundingClientRect().top <= innerHeight * .5) a = i; });
+      setAct(a);
+    };
+    addEventListener('scroll', f, { passive: true }); addEventListener('resize', f); f();
+    return () => { removeEventListener('scroll', f); removeEventListener('resize', f); };
+  }, []);
+  const go = id => { const s = spacerOf(id); if (s) window.scrollTo({ top: s.getBoundingClientRect().top + scrollY, behavior: 'smooth' }); };
+  return html`<div>
+    <div className="pbar" role="progressbar" aria-label="Story progress"><i ref=${bar}></i></div>
+    <nav className="dots" aria-label="Story sections">
+      ${SECTIONS.map(([id, label], i) => html`<button key=${id} type="button" className=${i === act ? 'on' : ''} aria-label=${'Go to ' + label} aria-current=${i === act ? 'true' : undefined} onClick=${() => go(id)}><span>${label}</span></button>`)}
+    </nav>
+  </div>`;
+}
+
+/* =====================================================================
+   4. STORY COMPONENTS
+   ===================================================================== */
+function Intro({ onBegin, onDone }) {
+  const r = useRef();
+  useGsap(r, () => {
+    gsap.set('.i-lines,.i-center', { autoAlpha: 0 });
+    const tl = gsap.timeline();
+    tl.to('.i-loader', { autoAlpha: 0, duration: .9, delay: 1.1 })
+      .set('.i-lines', { autoAlpha: 1 })
+      .fromTo('.i-l1', { autoAlpha: 0, y: 16, filter: 'blur(12px)' }, { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 2.2, ease: 'power2.out' }, '+=.2')
+      .fromTo('.i-l2', { autoAlpha: 0, y: 16, filter: 'blur(12px)' }, { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 2.2, ease: 'power2.out' }, '+=1.2')
+      .to('.i-lines', { autoAlpha: 0, filter: 'blur(10px)', duration: 1.4 }, '+=2')
+      .set('.i-center', { autoAlpha: 1 })
+      .fromTo('.i-title', { autoAlpha: 0, scale: .96, filter: 'blur(14px)' }, { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 2.2, ease: 'power2.out' })
+      .fromTo('.i-btn', { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: 1.2, ease: 'power2.out' }, '-=.7');
+  });
+  const begin = () => {
+    onBegin();
+    gsap.to(r.current, { autoAlpha: 0, duration: 1.8, delay: .3, ease: 'power2.inOut', onComplete: onDone });
+  };
+  const I = CONFIG.intro;
+  return html`<section ref=${r} className="intro" aria-label="Introduction">
+    <div className="i-loader" aria-live="polite"><${Heart} />Preparing something special</div>
+    <div className="i-lines"><p className="i-l1">${I.line1}</p><p className="i-l2">${I.line2}</p></div>
+    <div className="i-center">
+      <h1 className="i-title">${I.title} <em>${CONFIG.name} ❤️</em></h1>
+      <div className="i-btn"><${MagBtn} onClick=${begin}>${I.button}<${Heart} className="" /><//></div>
+    </div>
+  </section>`;
+}
+
+function Timeline() {
+  const r = useRef();
+  useGsap(r, () => {
+    gsap.fromTo('.tl-fill', { scaleY: 0 }, { scaleY: 1, ease: 'none', scrollTrigger: { trigger: '.tl', start: 'top 60%', end: 'bottom 70%', scrub: .6 } });
+    gsap.utils.toArray('.tl-item').forEach((el, i) => {
+      gsap.from(el, { opacity: 0, x: isMobile ? 0 : (i % 2 ? 70 : -70), y: 40, filter: 'blur(10px)', duration: 1.3, ease: 'power3.out',
+        scrollTrigger: { trigger: el, start: 'top 84%' } });
+    });
+    revealAll(r.current, '.tl-head');
+  });
+  return html`<div ref=${r} className="sec">
+    <header className="tl-head tl-hd"><span className="eyebrow">${CONFIG.beginning.timelineEyebrow}</span><h2 className="h-title">${CONFIG.beginning.timelineTitle}</h2></header>
+    <div className="tl" role="list">
+      <div className="tl-rail"></div><div className="tl-fill"></div>
+      ${CONFIG.timeline.map((t, i) => html`<div role="listitem" key=${i} className=${'tl-item ' + (i % 2 ? 'r' : 'l')}>
+        <span className="tl-dot"></span>
+        <div className="tl-date">${t.date}</div>
+        <h3 className="tl-title">${t.title}</h3>
+        <p className="tl-text">${t.text}</p>
+      </div>`)}
+    </div>
+  </div>`;
+}
+
+function Beginning() {
+  const r = useRef();
+  useGsap(r, () => {
+    const cnt = r.current.querySelector('.cnt'), o = { v: 0 };
+    const from = { autoAlpha: 0, y: 30, filter: 'blur(14px)' }, to = { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 1.6, ease: 'power3.out' };
+    const tl = gsap.timeline({ delay: 1.2 });
+    tl.fromTo('.h1', from, to)
+      .to(o, { v: CONFIG.months, duration: 1.8, ease: 'power2.out', onUpdate: () => { cnt.textContent = Math.round(o.v); } }, '<')
+      .fromTo('.h2', from, to, '+=.4').fromTo('.h3', from, to, '+=.5')
+      .fromTo('.h-hint', { autoAlpha: 0 }, { autoAlpha: 1, duration: 1.2 }, '+=.6');
+    gsap.to('.h-hint .line', { scaleY: .3, transformOrigin: 'top', repeat: -1, yoyo: true, duration: 1.2, ease: 'sine.inOut' });
+  });
+  return html`<section id="beginning" ref=${r} aria-label="Our beginning">
+    <div className="hero"><div className="hero-in">
+      <h2 className="h1"><span className="cnt">0</span> Months.</h2>
+      <p className="h2">${CONFIG.beginning.line2}</p>
+      <p className="h3">${CONFIG.beginning.line3}</p>
+    </div>
+    <div className="h-hint" aria-hidden="true"><span>Scroll</span><i className="line"></i></div></div>
+    <${Timeline} />
+  </section>`;
+}
+
+function Lightbox({ items, index, onClose, onNav }) {
+  const r = useRef(); const touch = useRef(0);
+  useEffect(() => {
+    document.documentElement.classList.add('lb-open');
+    r.current.querySelector('.lb-close').focus();
+    gsap.fromTo(r.current, { opacity: 0 }, { opacity: 1, duration: .5 });
+    const k = e => { if (e.key === 'Escape') onClose(); if (e.key === 'ArrowRight') onNav(1); if (e.key === 'ArrowLeft') onNav(-1); };
+    addEventListener('keydown', k);
+    return () => { removeEventListener('keydown', k); document.documentElement.classList.remove('lb-open'); };
+  }, []);
+  const it = items[index];
+  return html`<div ref=${r} className="lb" role="dialog" aria-modal="true" aria-label="Photo viewer"
+      onTouchStart=${e => { touch.current = e.touches[0].clientX; }}
+      onTouchEnd=${e => { const d = e.changedTouches[0].clientX - touch.current; if (Math.abs(d) > 50) onNav(d < 0 ? 1 : -1); }}>
+    <button type="button" className="lb-btn lb-close" onClick=${onClose} aria-label="Close"><${Icon} d="M6 6l12 12M18 6L6 18" /></button>
+    <button type="button" className="lb-btn lb-prev" onClick=${() => onNav(-1)} aria-label="Previous photo"><${Icon} d="M15 5l-7 7 7 7" /></button>
+    <button type="button" className="lb-btn lb-next" onClick=${() => onNav(1)} aria-label="Next photo"><${Icon} d="M9 5l7 7-7 7" /></button>
+    <div className="lb-fig"><img key=${it.i} src=${it.src} alt=${it.caption} /></div>
+    <p className="cap">${it.caption}</p>
+  </div>`;
+}
+
+function Memories() {
+  const r = useRef(); const [open, setOpen] = useState(-1);
+  const items = CONFIG.photos.map((p, i) => ({ ...p, i, src: p.src || ph(i, p.layout) }));
+  const groups = []; let cur = null;
+  items.forEach(it => {
+    if (it.layout === 'cinema') { cur = null; groups.push({ type: 'cinema', it }); }
+    else { if (!cur) { cur = { type: 'pol', items: [] }; groups.push(cur); } cur.items.push(it); }
+  });
+  useGsap(r, () => {
+    revealAll(r.current, '.mem-head,.cine .cap');
+    gsap.utils.toArray('.cine-img').forEach(box => {
+      gsap.fromTo(box.querySelector('img'), { yPercent: -8 }, { yPercent: 8, ease: 'none', scrollTrigger: { trigger: box, start: 'top bottom', end: 'bottom top', scrub: true } });
+      gsap.fromTo(box, { opacity: 0, scale: .94, filter: 'blur(14px)' }, { opacity: 1, scale: 1, filter: 'blur(0px)', duration: 1.6, ease: 'power3.out', scrollTrigger: { trigger: box, start: 'top 85%' } });
+    });
+    gsap.utils.toArray('.pol-wrap').forEach((el, i) => {
+      gsap.fromTo(el, { opacity: 0, filter: 'blur(10px)' }, { opacity: 1, filter: 'blur(0px)', duration: 1.3, scrollTrigger: { trigger: el, start: 'top 90%' } });
+      if (!isMobile) gsap.fromTo(el, { y: 50 }, { y: -50, ease: 'none', scrollTrigger: { trigger: el, start: 'top bottom', end: 'bottom top', scrub: true + (i % 3) * .3 } });
+    });
+  });
+  const nav = d => setOpen(o => (o + d + items.length) % items.length);
+  return html`<section id="memories" ref=${r} className="sec" aria-label="Our memories">
+    <header className="mem-head"><span className="eyebrow">${CONFIG.memoriesEyebrow}</span><h2 className="h-title">${CONFIG.memoriesTitle}</h2></header>
+    ${groups.map((g, gi) => g.type === 'cinema'
+      ? html`<figure key=${gi} className="cine">
+          <button type="button" className="cine-btn" onClick=${() => setOpen(g.it.i)} aria-label=${'Open photo: ' + g.it.caption}>
+            <div className="cine-img"><img src=${g.it.src} alt=${g.it.caption} loading="lazy" decoding="async" onLoad=${refreshSoon} /></div>
+          </button>
+          <figcaption className="cap">${g.it.caption}</figcaption>
+        </figure>`
+      : html`<div key=${gi} className="pols">
+          ${g.items.map(it => html`<div key=${it.i} className="pol-wrap">
+            <button type="button" className="pol" style=${{ '--rot': (it.i % 2 ? 2.6 : -2.6) + 'deg' }} onClick=${() => setOpen(it.i)} aria-label=${'Open photo: ' + it.caption}>
+              <div className="pol-img"><img src=${it.src} alt=${it.caption} loading="lazy" decoding="async" onLoad=${refreshSoon} /></div>
+              <div className="pol-cap">${it.caption}</div>
+            </button>
+          </div>`)}
+        </div>`)}
+    ${open >= 0 && html`<${Lightbox} items=${items} index=${open} onClose=${() => setOpen(-1)} onNav=${nav} />`}
+  </section>`;
+}
+
+function Reasons() {
+  const r = useRef();
+  useGsap(r, () => {
+    revealAll(r.current, '.rs-head,.rs-end');
+    gsap.utils.toArray('.reason').forEach(el => {
+      gsap.fromTo(el, { opacity: 0, y: 60, filter: 'blur(14px)', scale: .96 },
+        { opacity: 1, y: 0, filter: 'blur(0px)', scale: 1, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 90%', end: 'top 55%', scrub: .6 } });
+    });
+  });
+  return html`<section id="reasons" ref=${r} className="sec" aria-label="Things I love about you">
+    <header className="rs-head"><h2 className="h-title">${CONFIG.reasonsTitle}</h2></header>
+    <div className="reasons">
+      ${CONFIG.reasons.map((t, i) => html`<button key=${i} type="button" className="reason" onClick=${e => heartBurst(e.clientX, e.clientY, 9)}>
+        <span className="n">${String(i + 1).padStart(2, '0')}</span><span className="t">${t}</span><${Heart} />
+      </button>`)}
+    </div>
+    <p className="rs-end">${CONFIG.reasonsClosing}</p>
+  </section>`;
+}
+
+function OurSong() {
+  const r = useRef(), audio = useRef(), pad = useRef(); const [playing, setPlaying] = useState(false);
+  const S = CONFIG.song;
+  const bars = React.useMemo(() => Array.from({ length: 34 }, (_, i) => ({ h: (.35 + Math.abs(Math.sin(i * 1.7)) * .65).toFixed(2), d: (.5 + Math.random() * .7).toFixed(2) + 's' })), []);
+  useGsap(r, () => { revealAll(r.current); });
+  useEffect(() => () => { if (audio.current) audio.current.pause(); if (pad.current) pad.current.close(); }, []);
+  const startPad = () => { if (!pad.current) pad.current = createPad(); if (pad.current) { pad.current.start(); setPlaying(true); } };
+  const toggle = async () => {
+    if (playing) { if (audio.current) audio.current.pause(); if (pad.current) pad.current.stop(); setPlaying(false); return; }
+    if (S.src) {
+      try { await audio.current.play(); setPlaying(true); } catch (e) { startPad(); }
+    } else startPad();
+  };
+  return html`<section id="song" ref=${r} className=${'sec song ' + (playing ? 'playing' : '')} aria-label="Our song">
+    <div className="song-glow" aria-hidden="true"></div>
+    <div className="song-in">
+      <h2 className="h-title rv">${S.intro}</h2>
+      <div className="player rv">
+        <div className="disc" aria-hidden="true"><i><${Heart} /></i></div>
+        <div><div className="s-title">${S.title}</div><div className="s-artist">${S.artist}</div></div>
+        <div className="eq" aria-hidden="true">${bars.map((b, i) => html`<i key=${i} style=${{ '--h': b.h, '--d': b.d }}></i>`)}</div>
+        <${MagBtn} className="round" onClick=${toggle} label=${playing ? 'Pause song' : 'Play song'}>${playing ? html`<${Pause} />` : html`<${Play} />`}<//>
+        ${!S.src && html`<p className="note">Placeholder melody — add your song file in CONFIG.song.src</p>`}
+        ${S.src && html`<audio ref=${audio} src=${S.src} preload="none" onEnded=${() => setPlaying(false)} onError=${() => { if (!pad.current) setPlaying(false); }}></audio>`}
+      </div>
+    </div>
+  </section>`;
+}
+
+function LoveLetter() {
+  const r = useRef(); const [n, setN] = useState(0); const started = useRef(false); const L = CONFIG.letter;
+  const PAUSE = 9, lens = L.lines.map(l => l.length), total = lens.reduce((a, b) => a + b + PAUSE, 0);
+  useGsap(r, () => { revealAll(r.current, '.lt-h'); gsap.from('.paper', { opacity: 0, y: 60, rotate: 2, filter: 'blur(10px)', duration: 1.6, ease: 'power3.out', scrollTrigger: { trigger: '.paper', start: 'top 85%' } }); });
+  useEffect(() => {
+    let id; const io = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting && !started.current) {
+        started.current = true;
+        if (reduced) { setN(total); return; }
+        id = setInterval(() => setN(c => { if (c >= total) { clearInterval(id); return c; } return c + 1; }), 42);
+      }
+    }, { threshold: .45 });
+    io.observe(r.current.querySelector('.paper'));
+    return () => { io.disconnect(); clearInterval(id); };
+  }, []);
+  let off = 0; const done = n >= total;
+  return html`<section id="letter" ref=${r} className="sec letter" aria-label="A letter for you">
+    <h2 className="h-title lt-h" style=${{ maxWidth: '18ch' }}>${L.heading}</h2>
+    <article className="paper">
+      ${L.lines.map((line, i) => {
+        const avail = n - off, shown = Math.max(0, Math.min(line.length, avail)); const typing = avail >= 0 && avail < line.length + PAUSE && !done && avail >= 0 && shown <= line.length && avail < line.length + PAUSE; off += line.length + PAUSE;
+        return html`<p key=${i} aria-label=${line}><span aria-hidden="true">${line.slice(0, shown)}${typing && avail < line.length + 1 && avail >= 0 && started.current ? html`<span className="caret"></span>` : null}</span></p>`;
+      })}
+      <div className="sig" style=${{ opacity: done ? 1 : 0 }}>${L.signature}</div>
+      <div className="seal" aria-hidden="true"><${Heart} /></div>
+    </article>
+  </section>`;
+}
+
+function Birthday() {
+  const r = useRef(), cv = useRef(); const B = CONFIG.birthday;
+  useGsap(r, () => {
+    const conf = makeConfetti(cv.current); let burst = false;
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' },
+      scrollTrigger: { trigger: r.current, start: 'top top', end: '+=430%', pin: true, scrub: .8, anticipatePin: 1,
+        onUpdate: s => {
+          if (s.progress > .55) { conf.start(); if (!burst) { burst = true; heartBurst(innerWidth / 2, innerHeight / 2, isMobile ? 10 : 22); } }
+          else { conf.stop(); if (s.progress < .5) burst = false; }
+        },
+        onLeave: () => conf.stop() } });
+    const show = (sel, d = 1) => tl.fromTo(sel, { autoAlpha: 0, y: 24, filter: 'blur(14px)' }, { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: d });
+    const hide = sel => tl.to(sel, { autoAlpha: 0, filter: 'blur(10px)', duration: 1 });
+    show('.b1'); tl.to({}, { duration: .7 }); hide('.b1'); tl.to({}, { duration: .2 });
+    show('.b2'); tl.to({}, { duration: .8 }); hide('.b2');
+    tl.fromTo('.b-glow', { opacity: 0 }, { opacity: 1, duration: 1.6 }, '<');
+    tl.fromTo('.b-big', { autoAlpha: 0, scale: .88, filter: 'blur(18px)' }, { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 1.5 });
+    show('.b4'); show('.b5'); tl.to({}, { duration: 1.2 });
+    return () => conf.destroy();
+  });
+  return html`<section id="birthday" ref=${r} className="stage bday" aria-label="Happy birthday">
+    <div className="b-glow" aria-hidden="true"></div>
+    <canvas ref=${cv} className="confetti" aria-hidden="true"></canvas>
+    <p className="abs b1" style=${{ gridArea: '1/1' }}>${B.b1}</p>
+    <p className="abs b2" style=${{ gridArea: '1/1' }}>${B.b2}</p>
+    <div className="abs" style=${{ gridArea: '1/1' }}>
+      <h2 className="b-big">${B.title}</h2>
+      <p className="b4">${B.sub1}</p>
+      <p className="b5">${B.sub2}</p>
+    </div>
+  </section>`;
+}
+
+function FinalMessage({ onReplay }) {
+  const r = useRef(); const P = CONFIG.promise;
+  useGsap(r, () => {
+    let burst = false; const END = '+=540%';
+    gsap.fromTo('.f-bg', { scale: 1.05, xPercent: -2 }, { scale: 1.3, xPercent: 2, ease: 'none', scrollTrigger: { trigger: r.current, start: 'top top', end: END, scrub: true } });
+    const tl = gsap.timeline({ defaults: { ease: 'power2.out' },
+      scrollTrigger: { trigger: r.current, start: 'top top', end: END, pin: true, scrub: .8, anticipatePin: 1,
+        onUpdate: s => {
+          if (s.progress > .92 && !burst) { burst = true; const b = r.current.querySelector('.f-final').getBoundingClientRect(); heartBurst(b.left + b.width / 2, b.top + b.height / 2, isMobile ? 12 : 24); }
+          if (s.progress < .8) burst = false;
+        } } });
+    const show = sel => tl.fromTo(sel, { autoAlpha: 0, y: 22, filter: 'blur(12px)' }, { autoAlpha: 1, y: 0, filter: 'blur(0px)', duration: 1 });
+    const hide = sel => tl.to(sel, { autoAlpha: 0, filter: 'blur(8px)', duration: 1 });
+    const pause = d => tl.to({}, { duration: d });
+    show('.f1'); pause(.7); show('.f2'); pause(1.1); hide('.f1,.f2'); pause(.3);
+    show('.f3'); pause(1.1); hide('.f3'); pause(.3);
+    show('.f4'); pause(1.2); hide('.f4');
+    tl.fromTo('.f-glow', { opacity: 0 }, { opacity: 1, duration: 1.6 }, '<');
+    tl.fromTo('.f-final', { autoAlpha: 0, scale: .9, filter: 'blur(16px)' }, { autoAlpha: 1, scale: 1, filter: 'blur(0px)', duration: 1.6 });
+    show('.f-sub'); show('.f-btn'); pause(1);
+  });
+  return html`<section id="promise" ref=${r} className="stage promise" aria-label="The promise">
+    <div className="f-bg" aria-hidden="true"><img src=${P.photo || phFinal()} alt="" loading="lazy" decoding="async" onLoad=${refreshSoon} /></div>
+    <div className="f-shade" aria-hidden="true"></div>
+    <div className="f-glow" aria-hidden="true"></div>
+    <div className="abs" style=${{ gridArea: '1/1' }}><p className="f1">${P.f1}</p><p className="f2">${P.f2}</p></div>
+    <p className="abs f3" style=${{ gridArea: '1/1' }}>${P.f3}</p>
+    <p className="abs f4" style=${{ gridArea: '1/1', maxWidth: '22ch' }}>${P.f4}</p>
+    <div className="abs" style=${{ gridArea: '1/1' }}>
+      <h2 className="f-final">${P.final}<br />${CONFIG.name} <span className="hb">❤️</span></h2>
+      <p className="f-sub">${P.sub}</p>
+      <div className="f-btn"><${MagBtn} onClick=${onReplay}>${P.button} ❤️<//></div>
+    </div>
+  </section>`;
+}
+
+/* =====================================================================
+   5. APP
+   ===================================================================== */
+function App() {
+  const [started, setStarted] = useState(false);
+  const [introDone, setIntroDone] = useState(false);
+  const [run, setRun] = useState(0);
+  const curtain = useRef();
+  useEffect(() => { document.documentElement.classList.toggle('locked', !started); }, [started]);
+  useEffect(() => {
+    if (!started) return;
+    const f = () => ScrollTrigger.refresh();
+    addEventListener('load', f); const t = setTimeout(f, 1800);
+    return () => { removeEventListener('load', f); clearTimeout(t); };
+  }, [started]);
+  const replay = () => {
+    gsap.to(curtain.current, { autoAlpha: 1, duration: 1.1, ease: 'power2.inOut', onComplete: () => {
+      window.scrollTo(0, 0); setStarted(false); setIntroDone(false); setRun(x => x + 1);
+      gsap.to(curtain.current, { autoAlpha: 0, duration: 1.2, delay: .5 });
+    } });
+  };
+  return html`<div>
+    <div className="ambient" aria-hidden="true"><div className="orb a"></div><div className="orb b"></div></div>
+    <${Particles} /><div className="grain" aria-hidden="true"></div><${Cursor} />
+    ${started && html`<${Progress} />`}
+    ${started && html`<main key=${'m' + run}>
+      <${Beginning} /><${Memories} /><${Reasons} /><${OurSong} /><${LoveLetter} /><${Birthday} /><${FinalMessage} onReplay=${replay} />
+    </main>`}
+    ${!introDone && html`<${Intro} key=${'i' + run} onBegin=${() => { window.scrollTo(0, 0); setStarted(true); }} onDone=${() => setIntroDone(true)} />`}
+    <div ref=${curtain} className="curtain" aria-hidden="true"></div>
+  </div>`;
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(html`<${App} />`);
+</script>
+</body>
+</html>
